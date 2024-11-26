@@ -7,8 +7,8 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 **BONUS:**
 - Inseriamo la validazione: se l’utente mette due numeri uguali o inserisce cose diverse da numeri lo blocchiamo in qualche modo.
 - Se l’utente ha inserito qualcosa di non valido, segnaliamolo visivamente nel form.
-- I numeri random generati devono essere univoci
-===
+- I numeri random generati devono essere univoci.
+
 Step Logici
 - Inserisco un countdown, sotto l quale viene visualizzato un Array stampato di 5 numeri casuali compresi tra 1 e 50.
 - al termine del countdown faccio in modo che l'intera section sparisca con un display-none ne faccio comparire un'altra originalmente  presente ma con class d-none

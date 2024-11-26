@@ -8,7 +8,32 @@
     <title>Simon Says</title>
     
 </head>
-<body>
+<body class="d-flex align-items-center my-5">
+    <div class="container text-center bg-light text-dark p-5">
+        <div class="row align-items-center py-3" id="counter-box">
+            <h1 id="countdown">10</h1>
+            <h3>Ricordati più numeri che puoi!</h3>
+            <h2 id="random-array-numbers"></h2>
+        </div>
+        <div class="row align-items-center py-3 d-none" id="answer">
+            <h2 id="write-answer"> Quali numeri ti ricordi?</h2>
+            <form id="form-answer" class="py-5">
+                <div class="mb-3 d-flex gap-5" id="input-group">
+                    <input type="number" class="form-control" min="1" max="50" required>
+                    <input type="number" class="form-control" min="1" max="50" required>
+                    <input type="number" class="form-control" min="1" max="50" required>
+                    <input type="number" class="form-control" min="1" max="50" required>
+                    <input type="number" class="form-control" min="1" max="50" required>
+                </div>
+                <button type="submit" class="btn btn-primary my-5">Conferma</button>
+            </form>
+
+        </div>
+        <div class="row align-items-center d-none" id="result">
+
+            <h2 id="result-answer"></h2>
+        </div>
+    </div>
 
     <script src="assets/script/script.js"></script>  
 </body>
