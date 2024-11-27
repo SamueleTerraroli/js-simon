@@ -38,11 +38,11 @@ playerAnswer.addEventListener('submit', (event) => {
 
     let correctNumbers = [];
     for (let i = 0; i < answerArray.length; i++) {
-        if (answerArray[i] === randomNumbersArray[i]) {
+        if (answerArray[i].includes(randomNumbersArray[i])) {
             correctNumbers.push(answerArray[i]);
         }
     } 
-    if (correctNumbers.length === randomNumbersArray.length) {
+    if (correctNumbers.includes(randomNumbersArray)) {
         resultAnswer.innerText = 'Complimenti! Hai indovinato tutti i numeri';
         resultAnswer.classList.add('text-success');
     } else { 
