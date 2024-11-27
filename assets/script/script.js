@@ -1,27 +1,40 @@
-const randomNumbersArray=[];
 const randomNumbersList = document.getElementById('random-array-numbers');
 const countdownCounter = document.getElementById('countdown');
 const playerAnswer = document.getElementById('form-answer');
 const formContainer = document.getElementById('answer');
+const resultAnswer = document.getElementById('result-answer');
+const resultContainer = document.getElementById('result');
+const inputs = document.querySelectorAll('#input-group input');
 
+const min = 1;
+const max = 50;
+const totalNumbers = 5;
+const time = 10;
 
+const getDifferentRandomNumber = (min, max, tot) => {
+    const numbers = [];
+    //ad ogni ciclo estraggo un numero e lo pushon ell'array solo se non è già presente
+    // il ciclo termina quando la lunghezza dell'array è uguale a tot
+    while(numbers.length < tot){
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)+min);
+        if(!numbers.includes(randomNumber)) numbers.push(randomNumber)
+    }
 
-
-for(let i=1; i<=5; i++){
-    randomNumbersArray.push(getRandomNumber(1,50));
+    return numbers;
 }
+
+const randomNumbersArray = getDifferentRandomNumber(min ,max, totalNumbers );
 
 randomNumbersList.innerText = `[${randomNumbersArray.join(' , ')}]`;
 
-
-let answerArray=[];
 playerAnswer.addEventListener('submit', (event) => {
     event.preventDefault();
     
-    const resultAnswer = document.getElementById('result-answer');
-    const resultContainer = document.getElementById('result');
-    const inputs = document.querySelectorAll('#input-group input');
-    const answerArray = Array.from(inputs).map(input => Number(input.value)); // Usa Number per convertire l'input in numeri
+    //const answerArray = Array.from(inputs).map(input => Number(input.value)); // Usa Number per convertire l'input in numeri
+    const answerArray=[]
+    for (let i=0; i < inputs.length; i++){
+        answerArray.push(inputs[i].value)
+    }
 
     let correctNumbers = [];
     for (let i = 0; i < answerArray.length; i++) {
@@ -61,10 +74,6 @@ function startCountdown() {
     }, 1000);
 }
 startCountdown();
-
-function getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min) ) + min;
-  }
 
 function compareArrays(array1, array2) {
     for (let i = 0; i < array1.length; i++) {
